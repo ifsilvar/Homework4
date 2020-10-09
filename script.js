@@ -16,6 +16,7 @@ var qArea = document.querySelector("#qContainer");
 
 var score = 0;
 var qindex = 0;
+var secondsLeft = 15;
 
 //array of object questions
 var questions = [
@@ -36,10 +37,36 @@ function writeCurrentq(){
 
 writeCurrentq();
 
-buttonAEl.addEventListener("click", function(){
+function setTime() {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        timeEl.textContent = secondsLeft;
+
+        if(secondsLeft === 0) {
+        clearInterval(timerInterval);
+        sendMessage();
+        }
+
+    }, 1000);
+    }
+
+function sendMessage() {
+    timeEl.textContent = "TIME UP!";
+    timeEl.style.color = "#ff0000";
+    setInterval(function() {
+    timeEl.style.display = (timeEl.style.display == 'none' ? '' : 'none');
+    }, 500);
+}
+
+setTime();
+
+//button correct/incorrect states
+buttonAEl.addEventListener("click", function(event){
+    event.preventDefault();
         //do this when a button is clicked,
     if(questions[qindex].choices[0] !== questions[qindex].answer){
         alert("Incorrect!");
+        qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
     }else if(questions[qindex].choices[0] !== questions[qindex].answer){
@@ -72,6 +99,7 @@ buttonAEl.addEventListener("click", function(){
 })
 
 buttonBEl.addEventListener("click", function(){
+    event.preventDefault();
         //do this when a button is clicked,
     if(questions[qindex].choices[1] !== questions[qindex].answer){
         alert("Incorrect!");
@@ -106,6 +134,7 @@ buttonBEl.addEventListener("click", function(){
 })
 
 buttonCEl.addEventListener("click", function(){
+    event.preventDefault();
         //do this when a button is clicked,
     if(questions[qindex].choices[2] === questions[qindex].answer){
         alert("Correct!");
@@ -136,10 +165,11 @@ buttonCEl.addEventListener("click", function(){
         anstatusEl.innerHTML = qindex;
     }
     writeCurrentq();
-    
+
 })
 
 buttonDEl.addEventListener("click", function(){
+    event.preventDefault();
         //do this when a button is clicked,
     if(questions[qindex].choices[3] !== questions[qindex].answer){
         alert("Inorrect!");
@@ -173,43 +203,6 @@ buttonDEl.addEventListener("click", function(){
 
 })
 
+//timer
 
 
-
-
-  //working next correct answer
-
-
-
-
-
-
-/*function correctAnswer(){
-    
-    if(qindex = 0 && questions[qindex].answer == questions[qindex].choices[2]){
-        alert("correct!");
-        qindex++; 
-    }
-        
-        
-        
-}
-    //if(buttonCEl.addEventListener("click", function(){ alert("Correct!") == true})){
-        //qindex++;
-    
-    
-
-    
-
-
-
-
-correctAnswer();
-
-/*var questions1 = [
-    Question("what color is the sky?", ["green", "pink", "blue", "brown"], "blue"),
-    Question("what color are bannanas", ["green", "yellow", "blue", "orange"], "yellow"),
-    Question("what color is a leaf?", ["green", "pink", "blue", "green"], "green"),
-    Question("what color is coffee?", ["green", "pink", "blue", "brown"], "brown"),
-    Question("what color is a outer space", ["black", "pink", "blue", "brown"], "black"),
-];*/
