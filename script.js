@@ -22,9 +22,10 @@ var secondsLeft = 15;
 var questions = [
     {question: "what color is the sky?", choices: ["green", "pink", "blue", "brown"], answer: "blue"}, 
     {question: "what color are bannanas?", choices: ["green", "yellow", "blue", "orange"], answer: "yellow"},
-    {question: "what color is a leaf?", choices: ["green", "pink", "blue", "green"], answer: "green"},
-    {question: "what color is coffee?", choices: ["green", "pink", "blue", "brown"], answer: "brown"},
-    {question: "what color is a outer space?", choices: ["black", "pink", "blue", "brown"], answer: "black"}
+    {question: "what color is a leaf?", choices: ["purple", "pink", "blue", "green"], answer: "green"},
+    {question: "what color is coffee?", choices: ["red", "pink", "blue", "brown"], answer: "brown"},
+    {question: "what color is a outer space?", choices: ["black", "pink", "blue", "brown"], answer: "black"},
+    {question: "Final Score", choices:["","","",""], answer: ""}
 ]
 //writing to question block
 function writeCurrentq(){
@@ -37,55 +38,68 @@ function writeCurrentq(){
 
 writeCurrentq();
 
-function setTime() {
-    var timerInterval = setInterval(function() {
-        secondsLeft--;
-        timeEl.textContent = secondsLeft;
 
-        if(secondsLeft === 0) {
-        clearInterval(timerInterval);
-        sendMessage();
-        }
 
-    }, 1000);
+
+var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft;
+    if(secondsLeft === 0) {
+    clearInterval(timerInterval);
+    sendMessage();
     }
+}, 1000);
+
 
 function sendMessage() {
     timeEl.textContent = "TIME UP!";
     timeEl.style.color = "#ff0000";
     setInterval(function() {
-    timeEl.style.display = (timeEl.style.display == 'none' ? '' : 'none');
-    }, 500);
+        timeEl.style.display = (timeEl.style.display == 'none' ? '' : 'none');
+        }, 500);
+    var imgEl = document.createElement("img");
+    imgEl.style.width = "90vw";
+    imgEl.setAttribute("src", "images/iu-11.png");
+    document.querySelector("#imgtime").appendChild(imgEl);
+  
+    var myobj = document.getElementById("body");
+    myobj.remove();
+    setTimeout(function(){alert("TIME UP!"+"\n"+"Refresh to restart quiz!"); }, 1500);    
 }
 
-setTime();
 
+
+if(secondsLeft !=0){
 //button correct/incorrect states
 buttonAEl.addEventListener("click", function(event){
     event.preventDefault();
         //do this when a button is clicked,
     if(questions[qindex].choices[0] !== questions[qindex].answer){
-        alert("Incorrect!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }else if(questions[qindex].choices[0] !== questions[qindex].answer){
-        alert("Incorrect!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
-    }else if(questions[qindex].choices[0] === questions[qindex].answer){
-        alert("Correct!");
+        secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[0] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         score = score + 100;
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
         scoreEl.innerHTML = score;
+        secondsLeft = secondsLeft - 3;
     }else if(questions[qindex].choices[0] !== questions[qindex].answer){
-        alert("Correct!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }else if(questions[qindex].choices[0] === questions[qindex].answer){
         alert("Correct!");
         qindex++; 
@@ -94,18 +108,27 @@ buttonAEl.addEventListener("click", function(event){
         anstatusEl.innerHTML = qindex;
         scoreEl.innerHTML = score;
     }
+    if(qindex === 5){
+        prompt("Score: " + score + "\n" + "Enter Initials")
+        function myStopFunction() {
+            clearInterval(timerInterval);
+        }
+        myStopFunction();
+        document.getElementById("qContainer").remove();
+    };
     writeCurrentq();
-
+    return;
 })
 
 buttonBEl.addEventListener("click", function(){
     event.preventDefault();
         //do this when a button is clicked,
     if(questions[qindex].choices[1] !== questions[qindex].answer){
-        alert("Incorrect!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }else if(questions[qindex].choices[1] === questions[qindex].answer){
         alert("Correct!");
         qindex++; 
@@ -114,21 +137,32 @@ buttonBEl.addEventListener("click", function(){
         anstatusEl.innerHTML = qindex;
         scoreEl.innerHTML = score;
     }else if(questions[qindex].choices[1] !== questions[qindex].answer){
-        alert("Correct!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }else if(questions[qindex].choices[1] !== questions[qindex].answer){
-        alert("Correct!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }else if(questions[qindex].choices[1] !== questions[qindex].answer){
-        alert("Correct!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }
+    if(qindex === 5){
+        prompt("Score: " + score + "\n" + "Enter Initials")
+        function myStopFunction() {
+            clearInterval(timerInterval);
+        }
+        myStopFunction();
+        document.getElementById("qContainer").remove();
+    };
     writeCurrentq();
 
 })
@@ -144,26 +178,38 @@ buttonCEl.addEventListener("click", function(){
         anstatusEl.innerHTML = qindex;
         scoreEl.innerHTML = score;
     }else if(questions[qindex].choices[2] !== questions[qindex].answer){
-        alert("Incorrect!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }else if(questions[qindex].choices[2] !== questions[qindex].answer){
-        alert("Incorrect!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }else if(questions[qindex].choices[2] !== questions[qindex].answer){
-        alert("Incorrect!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }else if(questions[qindex].choices[2] !== questions[qindex].answer){
-        alert("Incorrect!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }
+    if(qindex === 5){
+        prompt("Score: " + score + "\n" + "Enter Initials")
+        function myStopFunction() {
+            clearInterval(timerInterval);
+        }
+        myStopFunction();
+        document.getElementById("qContainer").remove();
+    };
     writeCurrentq();
 
 })
@@ -172,20 +218,23 @@ buttonDEl.addEventListener("click", function(){
     event.preventDefault();
         //do this when a button is clicked,
     if(questions[qindex].choices[3] !== questions[qindex].answer){
-        alert("Inorrect!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }else if(questions[qindex].choices[3] !== questions[qindex].answer){
-        alert("Incorrect!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }else if(questions[qindex].choices[3] !== questions[qindex].answer){
-        alert("Incorrect!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }else if(questions[qindex].choices[3] === questions[qindex].answer){
         alert("Correct!");
         qindex++; 
@@ -194,15 +243,28 @@ buttonDEl.addEventListener("click", function(){
         anstatusEl.innerHTML = qindex;
         scoreEl.innerHTML = score;
     }else if(questions[qindex].choices[3] !== questions[qindex].answer){
-        alert("Incorrect!");
+        alert("Incorrect! -3 Seconds");
         qindex++; 
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }
+    if(qindex === 5){
+        prompt("Score: " + score + "\n" + "Enter Initials")
+        function myStopFunction() {
+            clearInterval(timerInterval);
+        }
+        myStopFunction();
+        document.getElementById("qContainer").remove();
+    };
     writeCurrentq();
-
+    
 })
 
-//timer
+}else{
+    prompt("TIMES UP! TRY AGAIN" + "\n" + "Score: " + score + "\n" + "Enter Initials")
+}
+
+
 
 

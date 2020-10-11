@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="initials" placeholder="enter your initials">
+    <button>Save HS</button>
+    <span id="list">
+    
+    </span>
+    <script>
+        var highscore = 10;
+        var alltimeHS = JSON.parse(localStorage.getItem("highscores")) || {};
+
+
+        document.querySelector("button").addEventListener("click", function(){ //when button is clicked run this function
+            var initials = document.getElementById("initials").value.trim(); //sets initials variable to input from user "IF - 10"
+            alltimeHS[initials] = highscore; //alltimeHS set to key from initials for highscore. userObject Literals notation;
+            localStorage.setItem("highscores", JSON.stringify(alltimeHS)) //stores input initials with the highscore.
+            console.log(alltimeHS)
+
+            var array = JSON.stringify(alltimeHS);
+            document.querySelector("#list").innerHTML = array;
+        })
+
+
+
+var rows = [{
+    name: "John",
+    age: 20,
+    email: "xx@hotmail.com"
+}, {
+    name: "Jack",
+    age: 50,
+    email: "xxx@hotmail.com"
+}, {
+    name: "Son",
+    age: 45,
+    email: "xxxx@hotmail.com"
+}];
+
+var html = "<table border='1|1'>";
+for (var i = 0; i < alltimeHS.length; i++) {
+    html+="<tr>";
+    html+="<td>"+alltimeHS[i].ad+"</td>";
+    html+="<td>"+alltimeHS[i].qw+"</td>";
+    html+="<td>"+alltimeHS[i].az+"</td>";
+    
+    html+="</tr>";
+
+}
+html+="</table>";
+document.getElementById("list").innerHTML = html;
+
+
+        // var name = "key2";
+        // var obj = {
+        //     ivan : "flores",
+        //     name : "hello",
+        //     key2: "world"
+        // }
+        // obj[name]
+    </script>
+</body>
+</html>
