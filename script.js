@@ -16,15 +16,20 @@ var qArea = document.querySelector("#qContainer");
 
 var score = 0;
 var qindex = 0;
-var secondsLeft = 15;
+var secondsLeft = 30;
 
 //array of object questions
 var questions = [
-    {question: "what color is the sky?", choices: ["green", "pink", "blue", "brown"], answer: "blue"}, 
-    {question: "what color are bannanas?", choices: ["green", "yellow", "blue", "orange"], answer: "yellow"},
-    {question: "what color is a leaf?", choices: ["purple", "pink", "blue", "green"], answer: "green"},
-    {question: "what color is coffee?", choices: ["red", "pink", "blue", "brown"], answer: "brown"},
-    {question: "what color is a outer space?", choices: ["black", "pink", "blue", "brown"], answer: "black"},
+    {question: "What does JSON stand for?", choices: ["JavaScript Object Numbers", "JavaScript Operator Notation", "JavaScript Object Notation", "JavaScript Open Notation"], answer: "JavaScript Object Notation"}, //C
+    {question: "What DOM command is used to choose any HTML element?", choices: ["green", "querySelector()", "blue", "orange"], answer: "querySelector()"},//B
+    {question: "What JSON command is used to convert objects to strings?", choices: ["purple", "pink", "blue", "stringify"], answer: "stringify"},//D
+    {question: "What is an API?", choices: ["red", "pink", "blue", "Application Programming Interface"], answer: "Application Programming Interface"},//D
+    {question: "How do you compare to data types and their values?", choices: ["===", "pink", "blue", "brown"], answer: "==="}, //A
+    {question: "What DOM command is used to delete an element?", choices: ["green", "remove()", "sfsfsd", "brown"], answer: "remove()"}, //B
+    {question: "What DOM command is used to ADD an new element?", choices: ["green", "fsdfsd", "blue", "append()"], answer: "append()"},//D
+    {question: "What is a local variable?", choices: ["variable that is only accessible within a function", "pink", "blue", "bmnbmn"], answer: "variable that is only accessible within a function"},//A
+    {question: "What command is used to store to local storage?", choices: ["red", "pink", "localStorage.setItem()", "sfdfe"], answer: "localStorage.setItem()"},//C
+    {question: "What DOM command is used to MAKE an new element?", choices: ["createElement()", "pink", "blue", "brown"], answer: "createElement()"},//A
     {question: "Final Score", choices:["","","",""], answer: ""}
 ]
 //writing to question block
@@ -107,8 +112,40 @@ buttonAEl.addEventListener("click", function(event){
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
         scoreEl.innerHTML = score;
+    }else if(questions[qindex].choices[0] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[0] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[0] === questions[qindex].answer){
+        alert("Correct!");
+        qindex++; 
+        score = score + 100;
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        scoreEl.innerHTML = score;
+    }else if(questions[qindex].choices[0] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[0] === questions[qindex].answer){
+        alert("Correct!");
+        qindex++; 
+        score = score + 100;
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        scoreEl.innerHTML = score;
     }
-    if(qindex === 5){
+    if(qindex === 10){
         prompt("Score: " + score + "\n" + "Enter Initials")
         function myStopFunction() {
             clearInterval(timerInterval);
@@ -154,8 +191,39 @@ buttonBEl.addEventListener("click", function(){
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
         secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[1] !== questions[qindex].answer){//
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[1] === questions[qindex].answer){
+        alert("Correct!");
+        qindex++; 
+        score = score + 100;
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        scoreEl.innerHTML = score;
+    }else if(questions[qindex].choices[1] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[1] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[1] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }
-    if(qindex === 5){
+    if(qindex === 10){
         prompt("Score: " + score + "\n" + "Enter Initials")
         function myStopFunction() {
             clearInterval(timerInterval);
@@ -201,8 +269,39 @@ buttonCEl.addEventListener("click", function(){
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
         secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[2] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[2] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[2] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[2] === questions[qindex].answer){
+        alert("Correct!");
+        qindex++; 
+        score = score + 100;
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        scoreEl.innerHTML = score;
+    }else if(questions[qindex].choices[2] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }
-    if(qindex === 5){
+    if(qindex === 10){
         prompt("Score: " + score + "\n" + "Enter Initials")
         function myStopFunction() {
             clearInterval(timerInterval);
@@ -248,8 +347,39 @@ buttonDEl.addEventListener("click", function(){
         console.log(qindex);
         anstatusEl.innerHTML = qindex;
         secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[3] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[3] === questions[qindex].answer){
+        alert("Correct!");
+        qindex++; 
+        score = score + 100;
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        scoreEl.innerHTML = score;
+    }else if(questions[qindex].choices[3] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[3] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
+    }else if(questions[qindex].choices[3] !== questions[qindex].answer){
+        alert("Incorrect! -3 Seconds");
+        qindex++; 
+        console.log(qindex);
+        anstatusEl.innerHTML = qindex;
+        secondsLeft = secondsLeft - 3;
     }
-    if(qindex === 5){
+    if(qindex === 10){
         prompt("Score: " + score + "\n" + "Enter Initials")
         function myStopFunction() {
             clearInterval(timerInterval);
@@ -261,10 +391,7 @@ buttonDEl.addEventListener("click", function(){
     
 })
 
-}else{
-    prompt("TIMES UP! TRY AGAIN" + "\n" + "Score: " + score + "\n" + "Enter Initials")
+
+
+
 }
-
-
-
-
