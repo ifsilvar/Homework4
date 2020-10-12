@@ -16,7 +16,7 @@ var qArea = document.querySelector("#qContainer");
 
 var score = 0;
 var qindex = 0;
-var secondsLeft = 30;
+var secondsLeft = 120;
 
 //array of object questions
 var questions = [
