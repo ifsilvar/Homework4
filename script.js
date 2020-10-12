@@ -146,7 +146,7 @@ buttonAEl.addEventListener("click", function(event){
         scoreEl.innerHTML = score;
     }
     if(qindex === 10){
-        prompt("Score: " + score + "\n" + "Enter Initials")
+        setTimeout(function(){prompt("Score: " + score + "\n" + "Enter Initials"); }, 1000); 
         function myStopFunction() {
             clearInterval(timerInterval);
         }
@@ -224,7 +224,7 @@ buttonBEl.addEventListener("click", function(){
         secondsLeft = secondsLeft - 3;
     }
     if(qindex === 10){
-        prompt("Score: " + score + "\n" + "Enter Initials")
+        setTimeout(function(){prompt("Score: " + score + "\n" + "Enter Initials"); }, 1000); 
         function myStopFunction() {
             clearInterval(timerInterval);
         }
@@ -302,7 +302,7 @@ buttonCEl.addEventListener("click", function(){
         secondsLeft = secondsLeft - 3;
     }
     if(qindex === 10){
-        prompt("Score: " + score + "\n" + "Enter Initials")
+        setTimeout(function(){prompt("Score: " + score + "\n" + "Enter Initials"); }, 1000); 
         function myStopFunction() {
             clearInterval(timerInterval);
         }
@@ -380,7 +380,7 @@ buttonDEl.addEventListener("click", function(){
         secondsLeft = secondsLeft - 3;
     }
     if(qindex === 10){
-        prompt("Score: " + score + "\n" + "Enter Initials")
+        setTimeout(function(){prompt("Score: " + score + "\n" + "Enter Initials"); }, 1000); 
         function myStopFunction() {
             clearInterval(timerInterval);
         }
