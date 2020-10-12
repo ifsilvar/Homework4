@@ -21,15 +21,15 @@ var secondsLeft = 30;
 //array of object questions
 var questions = [
     {question: "What does JSON stand for?", choices: ["JavaScript Object Numbers", "JavaScript Operator Notation", "JavaScript Object Notation", "JavaScript Open Notation"], answer: "JavaScript Object Notation"}, //C
-    {question: "What DOM command is used to choose any HTML element?", choices: ["green", "querySelector()", "blue", "orange"], answer: "querySelector()"},//B
-    {question: "What JSON command is used to convert objects to strings?", choices: ["purple", "pink", "blue", "stringify"], answer: "stringify"},//D
-    {question: "What is an API?", choices: ["red", "pink", "blue", "Application Programming Interface"], answer: "Application Programming Interface"},//D
-    {question: "How do you compare to data types and their values?", choices: ["===", "pink", "blue", "brown"], answer: "==="}, //A
-    {question: "What DOM command is used to delete an element?", choices: ["green", "remove()", "sfsfsd", "brown"], answer: "remove()"}, //B
-    {question: "What DOM command is used to ADD an new element?", choices: ["green", "fsdfsd", "blue", "append()"], answer: "append()"},//D
-    {question: "What is a local variable?", choices: ["variable that is only accessible within a function", "pink", "blue", "bmnbmn"], answer: "variable that is only accessible within a function"},//A
-    {question: "What command is used to store to local storage?", choices: ["red", "pink", "localStorage.setItem()", "sfdfe"], answer: "localStorage.setItem()"},//C
-    {question: "What DOM command is used to MAKE an new element?", choices: ["createElement()", "pink", "blue", "brown"], answer: "createElement()"},//A
+    {question: "What DOM command is used to choose any HTML element?", choices: ["getElementById()", "querySelector()", "selectElement()", "changeElement()"], answer: "querySelector()"},//B
+    {question: "What JSON command is used to convert objects to strings?", choices: ["parse", "spotify", "convert", "stringify"], answer: "stringify"},//D
+    {question: "What is an API?", choices: ["Application Parsing Interface", "All Programming Instructions", "Application People Instruction", "Application Programming Interface"], answer: "Application Programming Interface"},//D
+    {question: "How do you compare to data types and their values?", choices: ["===", "=", "==", "+="], answer: "==="}, //A
+    {question: "What DOM command is used to delete an element?", choices: ["createElement()", "remove()", "append()", "delete()"], answer: "remove()"}, //B
+    {question: "What DOM command is used to ADD an new element?", choices: ["createElement()", "getElement()", "addElement()", "append()"], answer: "append()"},//D
+    {question: "What is a local variable?", choices: ["variable that is only accessible within a function", "variable that is close to another variable", "variable that doesnt go out of town", "variable that can be used everywhere"], answer: "variable that is only accessible within a function"},//A
+    {question: "What command is used to store to local storage?", choices: ["writeItem()", "storeItem()", "localStorage.setItem()", "moveItem()"], answer: "localStorage.setItem()"},//C
+    {question: "What DOM command is used to MAKE an new element?", choices: ["createElement()", "addElement()", "append()", "makeElement()"], answer: "createElement()"},//A
     {question: "Final Score", choices:["","","",""], answer: ""}
 ]
 //writing to question block
